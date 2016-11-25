@@ -52,6 +52,15 @@ namespace Projet_Final
             get { return terre; }
             set { terre = value; }
         }
+        public bool placeDisponible()
+        {
+            bool capacite = true;
+            if (papier+verre+plastique+ferraille+terre == CapaciteMax)
+            {
+                capacite = false;
+            }
+            return capacite;
+        }
 
 
 
