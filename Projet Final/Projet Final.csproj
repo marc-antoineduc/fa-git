@@ -43,9 +43,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CFerraille.cs" />
+    <Compile Include="CMatière.cs" />
+    <Compile Include="CPapier.cs" />
+    <Compile Include="CPlastique.cs" />
+    <Compile Include="CTerre.cs" />
     <Compile Include="CVaisseau.cs" />
     <Compile Include="CVaisseauCargo.cs" />
     <Compile Include="CVaisseauLeger.cs" />
+    <Compile Include="CVerre.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
