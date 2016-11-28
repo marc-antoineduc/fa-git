@@ -21,7 +21,6 @@ namespace Projet_Final
         public int CapaciteMax
         {
             get { return capaciteMax; }
-            set { capaciteMax = value; }
         }
         public int Papier
         {

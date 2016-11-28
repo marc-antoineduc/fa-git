@@ -43,10 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CCentreTri.cs" />
     <Compile Include="CFerraille.cs" />
     <Compile Include="CMatière.cs" />
     <Compile Include="CPapier.cs" />
     <Compile Include="CPlastique.cs" />
+    <Compile Include="CPrincipale.cs" />
     <Compile Include="CTerre.cs" />
     <Compile Include="CVaisseau.cs" />
     <Compile Include="CVaisseauCargo.cs" />

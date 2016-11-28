@@ -10,6 +10,7 @@ namespace Projet_Final
     {
         static void Main(string[] args)
         {
+            CPrincipale principale = new CPrincipale();
         }
     }
 }
