@@ -96,8 +96,6 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-                Console.WriteLine(i+" "+vaisseau.Papier + " " + vaisseau.Plastique + " " + vaisseau.Terre + " " + vaisseau.Verre + " " + vaisseau.Ferraille +" "+(vaisseau.Papier +  vaisseau.Plastique +  vaisseau.Terre +  vaisseau.Verre + vaisseau.Ferraille));
-                Console.ReadKey();
             }
             for (int i = 0; i < nbLeger; i++)
             {
@@ -108,8 +106,6 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-                Console.WriteLine(i + " " + vaisseau.Papier + " " + vaisseau.Plastique + " " + vaisseau.Terre + " " + vaisseau.Verre + " " + vaisseau.Ferraille + " " + (vaisseau.Papier + vaisseau.Plastique + vaisseau.Terre + vaisseau.Verre + vaisseau.Ferraille));
-                Console.ReadKey();
             }
         }
 
@@ -127,9 +123,6 @@ namespace Projet_Final
                     ferraille = 457;
                     terre = 639;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-
-
-
                 }
                 else
                 {
