@@ -60,7 +60,18 @@ namespace Projet_Final
             }
             return capacite;
         }
-
+        public int donnerRessource(int ressource)
+        {
+            switch (ressource)
+            {
+                case 1: papier--; break;
+                case 2: plastique--; break;
+                case 3: terre--; break;
+                case 4: verre--; break;
+                case 5: ferraille--; break;
+            }
+            return 1;
+        }
 
 
     }
