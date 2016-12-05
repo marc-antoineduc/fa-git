@@ -44,15 +44,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CCentreTri.cs" />
-<<<<<<< HEAD
-=======
     <Compile Include="CFerraille.cs" />
     <Compile Include="CMatière.cs" />
     <Compile Include="CPapier.cs" />
     <Compile Include="CPlastique.cs" />
     <Compile Include="CPrincipale.cs" />
     <Compile Include="CTerre.cs" />
->>>>>>> 15f5b50191d606b93621007bf2f8204936299569
     <Compile Include="CVaisseau.cs" />
     <Compile Include="CVaisseauCargo.cs" />
     <Compile Include="CVaisseauLeger.cs" />

@@ -11,7 +11,6 @@ namespace Projet_Final
         
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             int papier, verre, plastique, ferraille, terre;
 
             papier = 1003;
@@ -20,9 +19,7 @@ namespace Projet_Final
             ferraille = 457;
             terre = 639;
             CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-=======
             CPrincipale principale = new CPrincipale();
->>>>>>> 15f5b50191d606b93621007bf2f8204936299569
         }
     }
 }

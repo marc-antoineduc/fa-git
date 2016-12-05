@@ -62,15 +62,17 @@ namespace Projet_Final
         }
         public int donnerRessource(int ressource)
         {
+            int var = 0;
+
             switch (ressource)
             {
-                case 1: papier--; break;
-                case 2: plastique--; break;
-                case 3: terre--; break;
-                case 4: verre--; break;
-                case 5: ferraille--; break;
+                case 1: var = papier; papier= 0; break;
+                case 2: var = plastique; plastique= 0; break;
+                case 3: var = terre; terre = 0; break;
+                case 4: var = verre; verre = 0; break;
+                case 5: var = ferraille; ferraille = 0; break;
             }
-            return 1;
+            return var;
         }
 
 
