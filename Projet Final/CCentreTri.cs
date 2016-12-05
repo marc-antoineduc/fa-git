@@ -16,6 +16,7 @@ namespace Projet_Final
 
         public void Dechargement(int papier, int verre, int plastique, int ferraille, int terre)
         {
+            
             Stack<int> stackPapier = new Stack<int>();
             Stack<int> stackVerre = new Stack<int>();
             Stack<int> stackPlastique = new Stack<int>();
@@ -27,14 +28,31 @@ namespace Projet_Final
                 stackPapier.Push(1);
             }
 
-            Console.WriteLine(stackPapier.Pop());
+            for (int i = 0; i < verre; i++)
+            {
+                stackVerre.Push(1);
+            }
+            
+            for (int i = 0; i < plastique; i++)
+            {
+                stackPlastique.Push(1);
+            }
+            for (int i = 0; i < ferraille; i++)
+            {
+                stackFerraille.Push(1);
+            }
 
-
+            for (int i = 0; i < terre; i++)
+            {
+                stackTerre.Push(1);
+            }
+                
+            Console.WriteLine(stackPapier.Count());
+            Console.WriteLine(stackVerre.Count());
+            Console.WriteLine(stackPlastique.Count());
+            Console.WriteLine(stackFerraille.Count());
+            Console.WriteLine(stackTerre.Count());
             Console.ReadKey();
-                
-                
-
-
         }
 
         public void Dechargement()
