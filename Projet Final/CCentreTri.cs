@@ -10,6 +10,7 @@ namespace Projet_Final
     {
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
+<<<<<<< HEAD
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
             Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
         }
@@ -33,6 +34,14 @@ namespace Projet_Final
             Console.ReadKey();
                 
                 
+=======
+
+        }
+
+        public void Dechargement()
+        {
+
+>>>>>>> 15f5b50191d606b93621007bf2f8204936299569
         }
 
         public void Chargement()
@@ -40,6 +49,9 @@ namespace Projet_Final
 
         }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 15f5b50191d606b93621007bf2f8204936299569
     }
 }
