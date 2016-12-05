@@ -19,7 +19,7 @@ namespace Projet_Final
             ferraille = 457;
             terre = 639;
             CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-            //CPrincipale principale = new CPrincipale();
+            CPrincipale principale = new CPrincipale();
 
         }
     }
@@ -37,7 +37,7 @@ namespace Projet_Final
 //                    papier = 1003;
 //                    verre = 857;
 //                    plastique = 3456;
-//                    ferraille = 457;
+//                    ferraille = 457;  
 //                    terre = 639;
 //                    CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
 

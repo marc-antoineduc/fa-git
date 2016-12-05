@@ -14,6 +14,7 @@ namespace Projet_Final
             Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
         }
 
+        // crée les stack de matieres
         public void Dechargement(int papier, int verre, int plastique, int ferraille, int terre)
         {
             
