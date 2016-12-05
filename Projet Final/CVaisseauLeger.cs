@@ -10,7 +10,7 @@ namespace Projet_Final
     {
         public CVaisseauLeger():base("Vaisseau léger",108)
         {
-
+            //MA GROSSE BITE
         }
     }
 }
