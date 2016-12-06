@@ -8,12 +8,24 @@ namespace Projet_Final
 {
     class CCentreTri
     {
+        Queue<CVaisseau> _QueueVaisseauPlein, _QueueVaisseauVide;
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
-            Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
+            Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre); v
+            _QueueVaisseauPlein = new Queue<CVaisseau>();
+            _QueueVaisseauVide = new Queue<CVaisseau>();
         }
-
+        public Queue<CVaisseau> QueueVaisseauPlein
+        {
+            get { return _QueueVaisseauPlein; }
+            set { _QueueVaisseauPlein = value; }
+        }
+        public Queue<CVaisseau> QueueVaisseauVide
+        {
+            get { return _QueueVaisseauVide; }
+            set { _QueueVaisseauVide = value; }
+        }
         // crée les stack de matieres
         public void Dechargement(int papier, int verre, int plastique, int ferraille, int terre)
         {

@@ -9,10 +9,12 @@ namespace Projet_Final
     class CPrincipale
     {
         Random r;
+        Queue<CCentreTri> QueueCentreTri;
         public CPrincipale()
         {
             r = new Random();
             initialisation();
+            QueueCentreTri = new Queue<CCentreTri>();
         }
         private void initialisation()
         {
@@ -96,8 +98,7 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-                Console.WriteLine(i+" "+vaisseau.Papier + " " + vaisseau.Plastique + " " + vaisseau.Terre + " " + vaisseau.Verre + " " + vaisseau.Ferraille +" "+(vaisseau.Papier +  vaisseau.Plastique +  vaisseau.Terre +  vaisseau.Verre + vaisseau.Ferraille));
-                Console.ReadKey();
+                QueueCentreTri.Peek().QueueVaisseauPlein.Enqueue(vaisseau);
             }
             for (int i = 0; i < nbLeger; i++)
             {
@@ -108,8 +109,7 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-                Console.WriteLine(i + " " + vaisseau.Papier + " " + vaisseau.Plastique + " " + vaisseau.Terre + " " + vaisseau.Verre + " " + vaisseau.Ferraille + " " + (vaisseau.Papier + vaisseau.Plastique + vaisseau.Terre + vaisseau.Verre + vaisseau.Ferraille));
-                Console.ReadKey();
+                QueueCentreTri.Peek().QueueVaisseauPlein.Enqueue(vaisseau);
             }
         }
 
@@ -127,6 +127,7 @@ namespace Projet_Final
                     ferraille = 457;
                     terre = 639;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                    QueueCentreTri.Enqueue(centre);
 
 
 
@@ -139,6 +140,7 @@ namespace Projet_Final
                     ferraille = 2658;
                     terre = 8234;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                    QueueCentreTri.Enqueue(centre);
 
                 }
             }
