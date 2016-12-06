@@ -9,12 +9,12 @@ namespace Projet_Final
     class CPrincipale
     {
         Random r;
-        Queue<CCentreTri> QueueCentreTri;
+        public Queue<CCentreTri> QueueCentreTri;
         public CPrincipale()
         {
             r = new Random();
-            initialisation();
             QueueCentreTri = new Queue<CCentreTri>();
+            initialisation();
         }
         private void initialisation()
         {
@@ -81,12 +81,12 @@ namespace Projet_Final
                         break;
                 }
             }
-            creationVaisseau(Convert.ToInt32(vaisseau));
             creationcentre(Convert.ToInt32(centre));
+            creationVaisseau(Convert.ToInt32(vaisseau));
         }
         private void creationVaisseau(int nbVaisseau)
         {
-            int nbCargo = 0, nbLeger= 0;
+            int nbCargo = 0, nbLeger = 0;
             nbCargo = r.Next(nbVaisseau);
             nbLeger = nbVaisseau - nbCargo;
             for (int i = 0; i < nbCargo; i++)
@@ -116,7 +116,7 @@ namespace Projet_Final
         private void creationcentre(int nbCentreTri)
         {
             int papier, verre, plastique, ferraille, terre;
-            for (int i = 1; i < nbCentreTri; i++)
+            for (int i = 1; i <= nbCentreTri; i++)
             {
 
                 if (i % 2 == 0)
@@ -142,6 +142,20 @@ namespace Projet_Final
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
                     QueueCentreTri.Enqueue(centre);
 
+                }
+            }
+        }
+        private void déroulement()
+        {
+            Queue<CVaisseau> temp = new Queue<CVaisseau>();
+            foreach (CCentreTri centre in QueueCentreTri)
+            {
+                foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
+                {
+                    centre.Dechargement(vaisseau.Papier, vaisseau.Verre, vaisseau.Plastique, vaisseau.Ferraille, vaisseau.Terre);
+                    vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
+                    vaisseau.Verre = 0; vaisseau.Ferraille = 0;
+                    centre.QueueVaisseauPlein.Enqueue(vaisseau);
                 }
             }
         }

@@ -24,7 +24,7 @@ namespace Projet_Final
         }
         public int Papier
         {
-            get { return papier; }
+            get { return papier;  }
             set { papier = value; }
         }
 

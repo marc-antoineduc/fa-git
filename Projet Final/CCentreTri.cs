@@ -12,7 +12,7 @@ namespace Projet_Final
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
-            Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre); v
+            Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre); 
             _QueueVaisseauPlein = new Queue<CVaisseau>();
             _QueueVaisseauVide = new Queue<CVaisseau>();
         }
@@ -65,7 +65,7 @@ namespace Projet_Final
             Console.WriteLine(stackPlastique.Count());
             Console.WriteLine(stackFerraille.Count());
             Console.WriteLine(stackTerre.Count());
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         public void Dechargement()
