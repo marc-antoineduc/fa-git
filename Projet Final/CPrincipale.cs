@@ -15,6 +15,7 @@ namespace Projet_Final
             r = new Random();
             QueueCentreTri = new Queue<CCentreTri>();
             initialisation();
+            déroulement();
         }
         private void initialisation()
         {
@@ -150,12 +151,14 @@ namespace Projet_Final
             Queue<CVaisseau> temp = new Queue<CVaisseau>();
             foreach (CCentreTri centre in QueueCentreTri)
             {
+                centre.QueueVaisseauPlein = temp;
                 foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
                 {
-                    centre.Dechargement(vaisseau.Papier, vaisseau.Verre, vaisseau.Plastique, vaisseau.Ferraille, vaisseau.Terre);
+                    temp = new Queue<CVaisseau>();
+                    centre.AjouterRessource(vaisseau.Papier, vaisseau.Verre, vaisseau.Plastique, vaisseau.Ferraille, vaisseau.Terre);
                     vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
                     vaisseau.Verre = 0; vaisseau.Ferraille = 0;
-                    centre.QueueVaisseauPlein.Enqueue(vaisseau);
+                    centre.QueueVaisseauVide.Enqueue(vaisseau);
                 }
             }
         }

@@ -9,10 +9,24 @@ namespace Projet_Final
     class CCentreTri
     {
         Queue<CVaisseau> _QueueVaisseauPlein, _QueueVaisseauVide;
+        Stack<int> stackPapier;
+        Stack<int> stackVerre;
+        Stack<int> stackPlastique;
+        Stack<int> stackFerraille;
+        Stack<int> stackTerre;
+        int CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre;
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
-            //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
-            Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre); 
+            this.CapacitePapier = CapacitePapier;
+            this.CapaciteVerre = CapaciteVerre;
+            this.CapacitePlastique = CapacitePlastique;
+            this.CapaciteFerraille = CapaciteFerraille;
+            this.CapaciteTerre = CapaciteTerre;
+             stackPapier = new Stack<int>();
+             stackVerre = new Stack<int>();
+             stackPlastique = new Stack<int>();
+             stackFerraille = new Stack<int>();
+             stackTerre = new Stack<int>();
             _QueueVaisseauPlein = new Queue<CVaisseau>();
             _QueueVaisseauVide = new Queue<CVaisseau>();
         }
@@ -27,15 +41,8 @@ namespace Projet_Final
             set { _QueueVaisseauVide = value; }
         }
         // crée les stack de matieres
-        public void Dechargement(int papier, int verre, int plastique, int ferraille, int terre)
+        public void AjouterRessource(int papier, int verre, int plastique, int ferraille, int terre)
         {
-            
-            Stack<int> stackPapier = new Stack<int>();
-            Stack<int> stackVerre = new Stack<int>();
-            Stack<int> stackPlastique = new Stack<int>();
-            Stack<int> stackFerraille = new Stack<int>();
-            Stack<int> stackTerre = new Stack<int>();
-
             for (int i = 0; i < papier; i++)
             {
                 stackPapier.Push(1);
