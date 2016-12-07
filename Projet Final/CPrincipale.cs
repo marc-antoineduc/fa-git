@@ -84,7 +84,7 @@ namespace Projet_Final
         }
         private void creationVaisseau(int nbVaisseau)
         {
-            int nbCargo = 0, nbLeger= 0;
+            int nbCargo = 0, nbLeger = 0;
             nbCargo = r.Next(nbVaisseau);
             nbLeger = nbVaisseau - nbCargo;
             for (int i = 0; i < nbCargo; i++)
@@ -96,8 +96,7 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-                Console.WriteLine(i+" "+vaisseau.Papier + " " + vaisseau.Plastique + " " + vaisseau.Terre + " " + vaisseau.Verre + " " + vaisseau.Ferraille +" "+(vaisseau.Papier +  vaisseau.Plastique +  vaisseau.Terre +  vaisseau.Verre + vaisseau.Ferraille));
-                Console.ReadKey();
+
             }
             for (int i = 0; i < nbLeger; i++)
             {
@@ -108,8 +107,7 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-                Console.WriteLine(i + " " + vaisseau.Papier + " " + vaisseau.Plastique + " " + vaisseau.Terre + " " + vaisseau.Verre + " " + vaisseau.Ferraille + " " + (vaisseau.Papier + vaisseau.Plastique + vaisseau.Terre + vaisseau.Verre + vaisseau.Ferraille));
-                Console.ReadKey();
+
             }
         }
 
@@ -118,31 +116,102 @@ namespace Projet_Final
             int papier, verre, plastique, ferraille, terre;
             for (int i = 1; i < nbCentreTri; i++)
             {
-
-                if (i % 2 == 0)
+                if ((i % 5 == 0) && (i % 2 == 0))
                 {
-                    papier = 1003;
+                    papier = 0;
                     verre = 857;
-                    plastique = 3456;
-                    ferraille = 457;
+                    plastique = 0;
+                    ferraille = 0;
                     terre = 639;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-
-
-
                 }
                 else
                 {
-                    papier = 3067;
-                    verre = 2456;
-                    plastique = 561;
-                    ferraille = 2658;
-                    terre = 8234;
-                    CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                    if ((i % 5 == 0) && (i % 2 != 0))
+                    {
+                        papier = 0;
+                        verre = 2456;
+                        plastique = 0;
+                        ferraille = 0;
+                        terre = 8234;
+                        CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                    }
+                    else
+                    {
+                        if (verificationNombre(i) == true && i == 2)
+                        {
+                            papier = 0;
+                            verre = 0;
+                            plastique = 3456;
+                            ferraille = 457;
+                            terre = 0;
+                            CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                        }
+                        else
+                        {
+                            if (verificationNombre(i) == true)
+                            {
+                                papier = 0;
+                                verre = 0;
+                                plastique = 561;
+                                ferraille = 2658;
+                                terre = 0;
+                                CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                            }
+                            else
+                            {
+                                if (i % 2 == 0)
+                                {
+                                    papier = 1003;
+                                    verre = 857;
+                                    plastique = 3456;
+                                    ferraille = 457;
+                                    terre = 639;
+                                    CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                                }
+                                else
+                                {
+                                    papier = 3067;
+                                    verre = 2456;
+                                    plastique = 561;
+                                    ferraille = 2658;
+                                    terre = 8234;
+                                    CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
 
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }
 
+
+        public static bool verificationNombre(int nombreEnvoye)
+        // fonction qui verifie si un nombre est premier ou non
+        {
+            int nombreGenere;
+            int resultatModulo;
+            bool resultatFonction = false;
+
+            // création d'une boucle qui verifie le nombre envoyé
+            for (nombreGenere = 2; (nombreGenere < nombreEnvoye) && (resultatFonction == false); nombreGenere++)
+            {
+                // si le nombre généré n'est pas egal au nombre envoyé
+                if (nombreGenere != nombreEnvoye)
+                {
+                    // on teste le modulo de la division
+                    resultatModulo = nombreEnvoye % nombreGenere;
+                    // si le reste est 0, le nombre est premier
+                    if (resultatModulo == 0)
+                    {
+                        resultatFonction = true;
+                    }
+                }
+            }
+
+            // on retourne true si le nombre est premier et false s'il ne l'est pas
+            return resultatFonction;
+        }
     }
 }

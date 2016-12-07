@@ -12,6 +12,7 @@ namespace Projet_Final
         {
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
             Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
+            
         }
 
         // crée les stack de matieres
