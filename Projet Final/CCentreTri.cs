@@ -8,23 +8,47 @@ namespace Projet_Final
 {
     class CCentreTri
     {
+        Queue<CVaisseau> _QueueVaisseauPlein, _QueueVaisseauVide;
+        Stack<int> stackPapier;
+        Stack<int> stackVerre;
+        Stack<int> stackPlastique;
+        Stack<int> stackFerraille;
+        Stack<int> stackTerre;
+        int CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre;
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
+<<<<<<< HEAD
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
             Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
             
+=======
+            this.CapacitePapier = CapacitePapier;
+            this.CapaciteVerre = CapaciteVerre;
+            this.CapacitePlastique = CapacitePlastique;
+            this.CapaciteFerraille = CapaciteFerraille;
+            this.CapaciteTerre = CapaciteTerre;
+             stackPapier = new Stack<int>();
+             stackVerre = new Stack<int>();
+             stackPlastique = new Stack<int>();
+             stackFerraille = new Stack<int>();
+             stackTerre = new Stack<int>();
+            _QueueVaisseauPlein = new Queue<CVaisseau>();
+            _QueueVaisseauVide = new Queue<CVaisseau>();
         }
-
-        // crée les stack de matieres
-        public void Dechargement(int papier, int verre, int plastique, int ferraille, int terre)
+        public Queue<CVaisseau> QueueVaisseauPlein
         {
-            
-            Stack<int> stackPapier = new Stack<int>();
-            Stack<int> stackVerre = new Stack<int>();
-            Stack<int> stackPlastique = new Stack<int>();
-            Stack<int> stackFerraille = new Stack<int>();
-            Stack<int> stackTerre = new Stack<int>();
-
+            get { return _QueueVaisseauPlein; }
+            set { _QueueVaisseauPlein = value; }
+        }
+        public Queue<CVaisseau> QueueVaisseauVide
+        {
+            get { return _QueueVaisseauVide; }
+            set { _QueueVaisseauVide = value; }
+>>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
+        }
+        // crée les stack de matieres
+        public void AjouterRessource(int papier, int verre, int plastique, int ferraille, int terre)
+        {
             for (int i = 0; i < papier; i++)
             {
                 stackPapier.Push(1);
@@ -54,7 +78,7 @@ namespace Projet_Final
             Console.WriteLine(stackPlastique.Count());
             Console.WriteLine(stackFerraille.Count());
             Console.WriteLine(stackTerre.Count());
-            Console.ReadKey();
+            //Console.ReadKey();
         }
 
         public void Dechargement()

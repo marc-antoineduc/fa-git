@@ -9,10 +9,13 @@ namespace Projet_Final
     class CPrincipale
     {
         Random r;
+        public Queue<CCentreTri> QueueCentreTri;
         public CPrincipale()
         {
             r = new Random();
+            QueueCentreTri = new Queue<CCentreTri>();
             initialisation();
+            déroulement();
         }
         private void initialisation()
         {
@@ -79,8 +82,8 @@ namespace Projet_Final
                         break;
                 }
             }
-            creationVaisseau(Convert.ToInt32(vaisseau));
             creationcentre(Convert.ToInt32(centre));
+            creationVaisseau(Convert.ToInt32(vaisseau));
         }
         private void creationVaisseau(int nbVaisseau)
         {
@@ -96,7 +99,11 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
+<<<<<<< HEAD
 
+=======
+                QueueCentreTri.Peek().QueueVaisseauPlein.Enqueue(vaisseau);
+>>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
             }
             for (int i = 0; i < nbLeger; i++)
             {
@@ -107,14 +114,18 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
+<<<<<<< HEAD
 
+=======
+                QueueCentreTri.Peek().QueueVaisseauPlein.Enqueue(vaisseau);
+>>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
             }
         }
 
         private void creationcentre(int nbCentreTri)
         {
             int papier, verre, plastique, ferraille, terre;
-            for (int i = 1; i < nbCentreTri; i++)
+            for (int i = 1; i <= nbCentreTri; i++)
             {
                 if ((i % 5 == 0) && (i % 2 == 0))
                 {
@@ -124,6 +135,7 @@ namespace Projet_Final
                     ferraille = 0;
                     terre = 639;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+<<<<<<< HEAD
                 }
                 else
                 {
@@ -177,11 +189,50 @@ namespace Projet_Final
                                     ferraille = 2658;
                                     terre = 8234;
                                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+=======
+                    QueueCentreTri.Enqueue(centre);
+
+
+
+                }
+                else
+                {
+                    papier = 3067;
+                    verre = 2456;
+                    plastique = 561;
+                    ferraille = 2658;
+                    terre = 8234;
+                    CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                    QueueCentreTri.Enqueue(centre);
+>>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
 
                                 }
                             }
                         }
                     }
+                }
+            }
+        }
+        private void déroulement()
+        {
+            Queue<CVaisseau> temp = new Queue<CVaisseau>();
+            foreach (CCentreTri centre in QueueCentreTri)
+            {
+                foreach ( CVaisseau vaisseau in temp)
+                {
+                    centre.QueueVaisseauPlein.Enqueue(temp.Dequeue());
+                }
+                foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
+                {
+                    
+                    centre.AjouterRessource(vaisseau.Papier, vaisseau.Verre, vaisseau.Plastique, vaisseau.Ferraille, vaisseau.Terre);
+                    vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
+                    vaisseau.Verre = 0; vaisseau.Ferraille = 0;
+                    centre.QueueVaisseauVide.Enqueue(vaisseau);
+                }
+                foreach (CVaisseau vaisseau in centre.QueueVaisseauVide)
+                {
+                    temp.Enqueue(vaisseau);
                 }
             }
         }
