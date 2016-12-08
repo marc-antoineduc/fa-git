@@ -9,27 +9,27 @@ namespace Projet_Final
     class CCentreTri
     {
         Queue<CVaisseau> _QueueVaisseauPlein, _QueueVaisseauVide;
-        Stack<int> stackPapier;
-        Stack<int> stackVerre;
-        Stack<int> stackPlastique;
-        Stack<int> stackFerraille;
-        Stack<int> stackTerre;
+        Stack<CMatière> stackPapier;
+        Stack<CMatière> stackVerre;
+        Stack<CMatière> stackPlastique;
+        Stack<CMatière> stackFerraille;
+        Stack<CMatière> stackTerre;
         int CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre;
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
 
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
-            AjouterRessource(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
+            //AjouterRessource(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
             this.CapacitePapier = CapacitePapier;
             this.CapaciteVerre = CapaciteVerre;
             this.CapacitePlastique = CapacitePlastique;
             this.CapaciteFerraille = CapaciteFerraille;
             this.CapaciteTerre = CapaciteTerre;
-             stackPapier = new Stack<int>();
-             stackVerre = new Stack<int>();
-             stackPlastique = new Stack<int>();
-             stackFerraille = new Stack<int>();
-             stackTerre = new Stack<int>();
+             stackPapier = new Stack<CMatière>();
+             stackVerre = new Stack<CMatière>();
+             stackPlastique = new Stack<CMatière>();
+             stackFerraille = new Stack<CMatière>();
+             stackTerre = new Stack<CMatière>();
             _QueueVaisseauPlein = new Queue<CVaisseau>();
             _QueueVaisseauVide = new Queue<CVaisseau>();
         }
@@ -48,26 +48,31 @@ namespace Projet_Final
         {
             for (int i = 0; i < papier; i++)
             {
-                stackPapier.Push(1);
+                CPapier papier1 = new CPapier();
+                stackPapier.Push(papier1);
             }
 
             for (int i = 0; i < verre; i++)
             {
-                stackVerre.Push(1);
+                CVerre verre1 = new CVerre();
+                stackVerre.Push(verre1);
             }
             
             for (int i = 0; i < plastique; i++)
             {
-                stackPlastique.Push(1);
+                CPlastique plastique1 = new CPlastique();
+                stackPlastique.Push(plastique1);
             }
             for (int i = 0; i < ferraille; i++)
             {
-                stackFerraille.Push(1);
+                CFerraille ferraile1 = new CFerraille();
+                stackFerraille.Push(ferraile1);
             }
 
             for (int i = 0; i < terre; i++)
             {
-                stackTerre.Push(1);
+                CTerre terre1 = new CTerre();
+                stackTerre.Push(terre1);
             }
                 
             Console.WriteLine(stackPapier.Count());

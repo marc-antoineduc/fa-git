@@ -53,6 +53,7 @@
     <Compile Include="CVaisseau.cs" />
     <Compile Include="CVaisseauCargo.cs" />
     <Compile Include="CVaisseauLeger.cs" />
+    <Compile Include="CVerre.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

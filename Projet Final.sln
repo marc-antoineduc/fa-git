@@ -5,6 +5,11 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Projet Final", "Projet Final\Projet Final.csproj", "{71A24AB5-7859-4B4A-96C9-E0ECCBE82D73}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{AD665996-E97C-4A52-95C4-AE36DA1A995A}"
+	ProjectSection(SolutionItems) = preProject
+		Projet Final\CVerre.cs = Projet Final\CVerre.cs
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
