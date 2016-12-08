@@ -75,11 +75,11 @@ namespace Projet_Final
                 stackTerre.Push(terre1);
             }
                 
-            Console.WriteLine(stackPapier.Count());
-            Console.WriteLine(stackVerre.Count());
-            Console.WriteLine(stackPlastique.Count());
-            Console.WriteLine(stackFerraille.Count());
-            Console.WriteLine(stackTerre.Count());
+            //Console.WriteLine(stackPapier.Count());
+            //Console.WriteLine(stackVerre.Count());
+            //Console.WriteLine(stackPlastique.Count());
+            //Console.WriteLine(stackFerraille.Count());
+            //Console.WriteLine(stackTerre.Count());
             //Console.ReadKey();
         }
 

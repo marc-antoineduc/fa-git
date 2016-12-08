@@ -127,6 +127,7 @@ namespace Projet_Final
                     ferraille = 0;
                     terre = 639;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                    QueueCentreTri.Enqueue(centre);
                 }
                 else
                 {
@@ -138,6 +139,7 @@ namespace Projet_Final
                         ferraille = 0;
                         terre = 8234;
                         CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                        QueueCentreTri.Enqueue(centre);
                     }
                     else
                     {
@@ -149,6 +151,7 @@ namespace Projet_Final
                             ferraille = 457;
                             terre = 0;
                             CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                            QueueCentreTri.Enqueue(centre);
                         }
                         else
                         {
@@ -160,6 +163,7 @@ namespace Projet_Final
                                 ferraille = 2658;
                                 terre = 0;
                                 CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                                QueueCentreTri.Enqueue(centre);
                             }
                             else
                             {
@@ -171,6 +175,7 @@ namespace Projet_Final
                                     ferraille = 457;
                                     terre = 639;
                                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
+                                    QueueCentreTri.Enqueue(centre);
                                 }
                                 else
                                 {
@@ -190,13 +195,17 @@ namespace Projet_Final
         }
         private void déroulement()
         {
+            int compteur = 0;
             Queue<CVaisseau> temp = new Queue<CVaisseau>();
             foreach (CCentreTri centre in QueueCentreTri)
             {
+                compteur++;
+                Console.WriteLine(compteur);
                 foreach ( CVaisseau vaisseau in temp)
                 {
-                    centre.QueueVaisseauPlein.Enqueue(temp.Dequeue());
+                    centre.QueueVaisseauPlein.Enqueue(vaisseau);
                 }
+                temp = new Queue<CVaisseau>();
                 foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
                 {
                     
@@ -209,6 +218,7 @@ namespace Projet_Final
                 {
                     temp.Enqueue(vaisseau);
                 }
+                Console.ReadKey(true);
             }
         }
 
