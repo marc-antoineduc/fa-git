@@ -153,19 +153,50 @@ namespace Projet_Final
         //}
 
         public void ChargementVaisseauAttente(string matiere)
+
+
         {
-            switch (matiere)
+            foreach (CVaisseau vaisseau in QueueVaisseauVide)
             {
-                case "papier":
-                    break;
-                case "verre":
-                    break;
-                case "plastique":
-                    break;
-                case "ferraille":
-                    break;
-                case "terre":
-                    break;
+
+                switch (matiere)
+                {
+                    case "papier":
+                        while ((vaisseau.placeDisponible() == true)&&(stackPapier.Count != 0))
+                        {
+                            stackPapier.Pop();
+                            vaisseau.Papier++;
+                        }
+                        break;
+                    case "verre":
+                        while ((vaisseau.placeDisponible() == true) && (stackVerre.Count != 0))
+                        {
+                            stackVerre.Pop();
+                            vaisseau.Verre++;
+                        }
+                        break;
+                    case "plastique":
+                        while ((vaisseau.placeDisponible() == true) && (stackPlastique.Count != 0))
+                        {
+                            stackPlastique.Pop();
+                            vaisseau.Plastique++;
+                        }
+                        break;
+                    case "ferraille":
+                        while ((vaisseau.placeDisponible() == true) && (stackFerraille.Count != 0))
+                        {
+                            stackFerraille.Pop();
+                            vaisseau.Ferraille++;
+                        }
+                        break;
+                    case "terre":
+                        while ((vaisseau.placeDisponible() == true) && (stackTerre.Count != 0))
+                        {
+                            stackTerre.Pop();
+                            vaisseau.Terre++;
+                        }
+                        break;
+                }
             }
         }
     }
