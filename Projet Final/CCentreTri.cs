@@ -19,8 +19,7 @@ namespace Projet_Final
         {
 
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
-            AjouterRessource
- (CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
+            
             this.CapacitePapier = CapacitePapier;
             this.CapaciteVerre = CapaciteVerre;
             this.CapacitePlastique = CapacitePlastique;
@@ -44,6 +43,26 @@ namespace Projet_Final
             get { return _QueueVaisseauVide; }
             set { _QueueVaisseauVide = value; }
         }
+        public int capacitePapier
+        {
+            get { return CapacitePapier; }
+        }
+        public int capaciteVerre
+        {
+            get { return CapaciteVerre; }
+        }
+        public int capacitePlastique
+        {
+            get { return CapacitePlastique; }
+        }
+        public int capaciteFerraille
+        {
+            get { return CapaciteFerraille; }
+        }
+        public int capaciteTerre
+        {
+            get { return CapaciteTerre; }
+        }
         // crée les stack de matieres
         public bool AjouterRessource(int papier, int verre, int plastique, int ferraille, int terre)
         {
@@ -64,7 +83,7 @@ namespace Projet_Final
                 stackVerre.Push(verre1);
                 if (stackVerre.Count == CapaciteVerre)
                 {
-
+                    return false;
                 }
             }
             
@@ -74,7 +93,7 @@ namespace Projet_Final
                 stackPlastique.Push(plastique1);
                 if (stackPlastique.Count == CapacitePlastique)
                 {
-
+                    return false;
                 }
             }
             for (int i = 0; i < ferraille; i++)
@@ -83,7 +102,7 @@ namespace Projet_Final
                 stackFerraille.Push(ferraille1);
                 if (stackFerraille.Count == CapaciteFerraille)
                 {
-
+                    return false;
                 }
             }
 
@@ -93,7 +112,7 @@ namespace Projet_Final
                 stackTerre.Push(terre1);
                 if (stackTerre.Count == CapaciteTerre )
                 {
-
+                    return false;
                 }
             }
                 
@@ -106,35 +125,48 @@ namespace Projet_Final
             return true;
         }
 
-        public void RetirrerRessource(int RessourceFull, CMatière matiere)
+        //public void RetirrerRessource(int RessourceFull, CMatière matiere)
+        //{
+        //    switch (matiere.Matiere)
+        //    {
+        //        case "papier":
+        //            for (int i = 0; i < RessourceFull; i++)
+        //            {
+        //                _QueueVaisseauVide.Peek().Papier += 1;
+        //                if (_QueueVaisseauVide.Peek().placeDisponible() == false)
+        //                {
+        //                    foreach ()
+        //                                    }
+        //            }
+        //            break;
+        //        case "verre":
+        //            break;
+        //        case "plastique":
+        //            break;
+        //        case "ferraille":
+        //            break;
+        //        case "terre":
+        //            break;
+        //    }
+
+
+        //}
+
+        public void ChargementVaisseauAttente(string matiere)
         {
-            //switch (matiere.Matiere)
-            //{
-            //    case "papier":      for(int i=0; i < RessourceFull; i++)
-            //                        {
-            //                            _QueueVaisseauVide.Peek().Papier += 1;
-            //                            if(_QueueVaisseauVide.Peek().placeDisponible() == false)
-            //                                {
-            //                                    foreach()
-            //                                }
-            //                        }
-            //        break;
-            //    case "verre":       
-            //        break;
-            //    case "plastique":   
-            //        break;
-            //    case "ferraille":   
-            //        break;
-            //    case "terre":       
-            //        break;
-            //}
-
-
-        }
-
-        public void ChargementVaisseauAttente()
-        {
-
+            switch (matiere)
+            {
+                case "papier":
+                    break;
+                case "verre":
+                    break;
+                case "plastique":
+                    break;
+                case "ferraille":
+                    break;
+                case "terre":
+                    break;
+            }
         }
     }
 }

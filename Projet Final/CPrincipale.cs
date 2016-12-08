@@ -208,8 +208,41 @@ namespace Projet_Final
                 temp = new Queue<CVaisseau>();
                 foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
                 {
-                    
-                    centre.AjouterRessource(vaisseau.Papier, vaisseau.Verre, vaisseau.Plastique, vaisseau.Ferraille, vaisseau.Terre);
+                    for (int i = 0; i < vaisseau.Papier; i++)
+                    {
+                        if (centre.AjouterRessource(1, 0, 0, 0, 0) == false)
+                        {
+                            centre.ChargementVaisseauAttente("papier");
+                        }
+                    }
+                    for (int i = 0; i < vaisseau.Verre; i++)
+                    {
+                        if (centre.AjouterRessource(0, 1, 0, 0, 0) == false)
+                        {
+                            centre.ChargementVaisseauAttente("verre");
+                        }
+                    }
+                    for (int i = 0; i < vaisseau.Plastique; i++)
+                    {
+                        if (centre.AjouterRessource(0, 0, 1, 0, 0) == false)
+                        {
+                            centre.ChargementVaisseauAttente("plastique");
+                        }
+                    }
+                    for (int i = 0; i < vaisseau.Ferraille; i++)
+                    {
+                        if (centre.AjouterRessource(0, 0, 0, 1, 0) == false)
+                        {
+                            centre.ChargementVaisseauAttente("ferraille");
+                        }
+                    }
+                    for (int i = 0; i < vaisseau.Terre; i++)
+                    {
+                        if (centre.AjouterRessource(0, 0, 0, 0, 1) == false)
+                        {
+                            centre.ChargementVaisseauAttente("terre");
+                        }
+                    }
                     vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
                     vaisseau.Verre = 0; vaisseau.Ferraille = 0;
                     centre.QueueVaisseauVide.Enqueue(vaisseau);
