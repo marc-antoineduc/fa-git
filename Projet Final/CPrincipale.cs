@@ -99,11 +99,7 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-<<<<<<< HEAD
-
-=======
                 QueueCentreTri.Peek().QueueVaisseauPlein.Enqueue(vaisseau);
->>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
             }
             for (int i = 0; i < nbLeger; i++)
             {
@@ -114,11 +110,7 @@ namespace Projet_Final
                 vaisseau.Terre = r.Next(restant); restant -= vaisseau.Terre;
                 vaisseau.Verre = r.Next(restant); restant -= vaisseau.Verre;
                 vaisseau.Ferraille = restant;
-<<<<<<< HEAD
-
-=======
                 QueueCentreTri.Peek().QueueVaisseauPlein.Enqueue(vaisseau);
->>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
             }
         }
 
@@ -135,7 +127,6 @@ namespace Projet_Final
                     ferraille = 0;
                     terre = 639;
                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-<<<<<<< HEAD
                 }
                 else
                 {
@@ -189,23 +180,7 @@ namespace Projet_Final
                                     ferraille = 2658;
                                     terre = 8234;
                                     CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-=======
-                    QueueCentreTri.Enqueue(centre);
-
-
-
-                }
-                else
-                {
-                    papier = 3067;
-                    verre = 2456;
-                    plastique = 561;
-                    ferraille = 2658;
-                    terre = 8234;
-                    CCentreTri centre = new CCentreTri(papier, verre, plastique, ferraille, terre);
-                    QueueCentreTri.Enqueue(centre);
->>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
-
+                                    QueueCentreTri.Enqueue(centre);
                                 }
                             }
                         }

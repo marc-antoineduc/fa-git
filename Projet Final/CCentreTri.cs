@@ -17,11 +17,9 @@ namespace Projet_Final
         int CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre;
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
         {
-<<<<<<< HEAD
+
             //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
-            Dechargement(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
-            
-=======
+            AjouterRessource(CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre);
             this.CapacitePapier = CapacitePapier;
             this.CapaciteVerre = CapaciteVerre;
             this.CapacitePlastique = CapacitePlastique;
@@ -44,7 +42,6 @@ namespace Projet_Final
         {
             get { return _QueueVaisseauVide; }
             set { _QueueVaisseauVide = value; }
->>>>>>> 5314f7da1769e5792dbba892947a59993793f19f
         }
         // crée les stack de matieres
         public void AjouterRessource(int papier, int verre, int plastique, int ferraille, int terre)
