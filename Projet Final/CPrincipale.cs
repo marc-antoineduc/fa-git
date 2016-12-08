@@ -151,14 +151,21 @@ namespace Projet_Final
             Queue<CVaisseau> temp = new Queue<CVaisseau>();
             foreach (CCentreTri centre in QueueCentreTri)
             {
-                centre.QueueVaisseauPlein = temp;
+                foreach ( CVaisseau vaisseau in temp)
+                {
+                    centre.QueueVaisseauPlein.Enqueue(temp.Dequeue());
+                }
                 foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
                 {
-                    temp = new Queue<CVaisseau>();
+                    
                     centre.AjouterRessource(vaisseau.Papier, vaisseau.Verre, vaisseau.Plastique, vaisseau.Ferraille, vaisseau.Terre);
                     vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
                     vaisseau.Verre = 0; vaisseau.Ferraille = 0;
                     centre.QueueVaisseauVide.Enqueue(vaisseau);
+                }
+                foreach (CVaisseau vaisseau in centre.QueueVaisseauVide)
+                {
+                    temp.Enqueue(vaisseau);
                 }
             }
         }
