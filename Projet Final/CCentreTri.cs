@@ -68,97 +68,77 @@ namespace Projet_Final
         {
             for (int i = 0; i < papier; i++)
             {
-                CPapier papier1 = new CPapier();
-                stackPapier.Push(papier1);
-                if(stackPapier.Count == CapacitePapier)
+                if(stackPapier.Count >= CapacitePapier)
                 {
                     return false;
-                    //RetirrerRessource(stackPapier.Count, papier1);
+                }
+                else
+                {
+                    CPapier papier1 = new CPapier();
+                    stackPapier.Push(papier1);
                 }
             }
 
             for (int i = 0; i < verre; i++)
             {
-                CVerre verre1 = new CVerre();
-                stackVerre.Push(verre1);
-                if (stackVerre.Count == CapaciteVerre)
+                if (stackVerre.Count >= CapaciteVerre)
                 {
                     return false;
+                }
+                else
+                {
+                    CVerre verre1 = new CVerre();
+                    stackVerre.Push(verre1);
                 }
             }
             
             for (int i = 0; i < plastique; i++)
             {
-                CPlastique plastique1 = new CPlastique();
-                stackPlastique.Push(plastique1);
-                if (stackPlastique.Count == CapacitePlastique)
+                if (stackPlastique.Count >= CapacitePlastique)
                 {
                     return false;
+                }
+                else
+                {
+                    CPlastique plastique1 = new CPlastique();
+                    stackPlastique.Push(plastique1);
                 }
             }
             for (int i = 0; i < ferraille; i++)
             {
-                CFerraille ferraille1 = new CFerraille();
-                stackFerraille.Push(ferraille1);
-                if (stackFerraille.Count == CapaciteFerraille)
+                if (stackFerraille.Count >= CapaciteFerraille)
                 {
                     return false;
+                }
+                else
+                {
+                    CFerraille ferraille1 = new CFerraille();
+                    stackFerraille.Push(ferraille1);
                 }
             }
 
             for (int i = 0; i < terre; i++)
             {
-                CTerre terre1 = new CTerre();
-                stackTerre.Push(terre1);
-                if (stackTerre.Count == CapaciteTerre )
+                if (stackTerre.Count >= CapaciteTerre )
                 {
                     return false;
                 }
+                else
+                {
+                    CTerre terre1 = new CTerre();
+                    stackTerre.Push(terre1);
+                }
             }
-                
-            //Console.WriteLine(stackPapier.Count());
-            //Console.WriteLine(stackVerre.Count());
-            //Console.WriteLine(stackPlastique.Count());
-            //Console.WriteLine(stackFerraille.Count());
-            //Console.WriteLine(stackTerre.Count());
-            //Console.ReadKey();
             return true;
         }
+        
 
-        //public void RetirrerRessource(int RessourceFull, CMatière matiere)
-        //{
-        //    switch (matiere.Matiere)
-        //    {
-        //        case "papier":
-        //            for (int i = 0; i < RessourceFull; i++)
-        //            {
-        //                _QueueVaisseauVide.Peek().Papier += 1;
-        //                if (_QueueVaisseauVide.Peek().placeDisponible() == false)
-        //                {
-        //                    foreach ()
-        //                                    }
-        //            }
-        //            break;
-        //        case "verre":
-        //            break;
-        //        case "plastique":
-        //            break;
-        //        case "ferraille":
-        //            break;
-        //        case "terre":
-        //            break;
-        //    }
-
-
-        //}
-
-        public void ChargementVaisseauAttente(string matiere)
-
-
+        public Queue<CVaisseau> ChargementVaisseauAttente(string matiere)
         {
+            Queue<CVaisseau> temporaire = new Queue<CVaisseau>();
+            int cpt = 0;
             foreach (CVaisseau vaisseau in QueueVaisseauVide)
             {
-
                 switch (matiere)
                 {
                     case "papier":
@@ -197,7 +177,38 @@ namespace Projet_Final
                         }
                         break;
                 }
+                if (vaisseau.placeDisponible() == false)
+                {
+                    temporaire.Enqueue(vaisseau);
+                    cpt++;
+                }
             }
+            for (int i = 0; i < cpt; i++)
+            {
+                QueueVaisseauVide.Dequeue();
+            }
+            return temporaire;
+        }
+        public int nbRessource(string matiere)
+        { int nbRessource = 0;
+            switch (matiere)
+            {
+                case "papier":
+                    nbRessource = stackPapier.Count();
+                    break;
+                case "verre":
+                    nbRessource = stackVerre.Count();
+                    break;
+                case "plastique":
+                    nbRessource = stackPlastique.Count();
+                    break;
+                case "ferraille":
+                    nbRessource = stackFerraille.Count();
+                    break;
+                case "terre":nbRessource =stackTerre.Count();
+                    break;
+            }
+            return nbRessource;
         }
     }
 }

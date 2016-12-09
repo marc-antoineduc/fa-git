@@ -15,7 +15,11 @@ namespace Projet_Final
             r = new Random();
             QueueCentreTri = new Queue<CCentreTri>();
             initialisation();
+            Console.WriteLine("avant le triage.");
+            affichage();
             déroulement();
+            Console.WriteLine("après le triage.");
+            affichage();
         }
         private void initialisation()
         {
@@ -27,7 +31,7 @@ namespace Projet_Final
                 switch (Console.ReadLine())
                 {
                     case "1":
-                        vaisseau = 100;
+                        vaisseau = 25;
                         verif = false;
                         break;
                     case "2":
@@ -143,7 +147,7 @@ namespace Projet_Final
                     }
                     else
                     {
-                        if (verificationNombre(i) == true && i == 2)
+                        if ( i == 2)
                         {
                             papier = 0;
                             verre = 0;
@@ -195,12 +199,11 @@ namespace Projet_Final
         }
         private void déroulement()
         {
-            int compteur = 0;
-            Queue<CVaisseau> temp = new Queue<CVaisseau>();
+            Queue<CVaisseau> temp = new Queue<CVaisseau>(), temp2 = new Queue<CVaisseau>();
             foreach (CCentreTri centre in QueueCentreTri)
             {
-                compteur++;
-                Console.WriteLine(compteur);
+                int cptVaisseauPlein = 0;
+                int cptVaisseauVide = 0;
                 foreach ( CVaisseau vaisseau in temp)
                 {
                     centre.QueueVaisseauPlein.Enqueue(vaisseau);
@@ -208,79 +211,136 @@ namespace Projet_Final
                 temp = new Queue<CVaisseau>();
                 foreach (CVaisseau vaisseau in centre.QueueVaisseauPlein)
                 {
+                    bool verif = false;
                     for (int i = 0; i < vaisseau.Papier; i++)
                     {
                         if (centre.AjouterRessource(1, 0, 0, 0, 0) == false)
                         {
-                            centre.ChargementVaisseauAttente("papier");
+                            temp2 = centre.ChargementVaisseauAttente("papier");
+                            foreach (CVaisseau  v in temp2)
+                            {
+                                temp.Enqueue(v);
+                                cptVaisseauPlein++;
+                            }
                         }
+                        verif = true;
                     }
                     for (int i = 0; i < vaisseau.Verre; i++)
                     {
                         if (centre.AjouterRessource(0, 1, 0, 0, 0) == false)
                         {
-                            centre.ChargementVaisseauAttente("verre");
+                            temp2 = centre.ChargementVaisseauAttente("verre");
+                            foreach (CVaisseau v in temp2)
+                            {
+                                temp.Enqueue(v);
+                                cptVaisseauPlein++;
+                            }
                         }
+                        verif = true;
                     }
                     for (int i = 0; i < vaisseau.Plastique; i++)
                     {
                         if (centre.AjouterRessource(0, 0, 1, 0, 0) == false)
                         {
-                            centre.ChargementVaisseauAttente("plastique");
+                            temp2 = centre.ChargementVaisseauAttente("plastique");
+                            foreach (CVaisseau v in temp2)
+                            {
+                                temp.Enqueue(v);
+                               cptVaisseauPlein++;
+                            }
                         }
+                        verif = true;
                     }
                     for (int i = 0; i < vaisseau.Ferraille; i++)
                     {
                         if (centre.AjouterRessource(0, 0, 0, 1, 0) == false)
                         {
-                            centre.ChargementVaisseauAttente("ferraille");
+                            temp2 = centre.ChargementVaisseauAttente("ferraille");
+                            foreach (CVaisseau v in temp2)
+                            {
+                                temp.Enqueue(v);
+                                cptVaisseauPlein++;
+                            }
                         }
+                        verif = true;
                     }
+
                     for (int i = 0; i < vaisseau.Terre; i++)
                     {
                         if (centre.AjouterRessource(0, 0, 0, 0, 1) == false)
                         {
-                            centre.ChargementVaisseauAttente("terre");
+                            temp2 = centre.ChargementVaisseauAttente("terre");
+                            foreach (CVaisseau v in temp2)
+                            {
+                                temp.Enqueue(v);
+                                cptVaisseauPlein++;
+                            }
                         }
+                        verif = true;
                     }
-                    vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
-                    vaisseau.Verre = 0; vaisseau.Ferraille = 0;
-                    centre.QueueVaisseauVide.Enqueue(vaisseau);
+                    if (verif==true)
+                    {
+                        vaisseau.Papier = 0; vaisseau.Plastique = 0; vaisseau.Terre = 0;
+                        vaisseau.Verre = 0; vaisseau.Ferraille = 0;
+                        cptVaisseauVide++;
+                        centre.QueueVaisseauVide.Enqueue(vaisseau);
+                    }
+                }
+                for (int i = 0; i < cptVaisseauPlein; i++)
+                {
+                    centre.QueueVaisseauVide.Dequeue();
                 }
                 foreach (CVaisseau vaisseau in centre.QueueVaisseauVide)
                 {
                     temp.Enqueue(vaisseau);
                 }
-                Console.ReadKey(true);
             }
         }
 
 
-        public static bool verificationNombre(int nombreEnvoye)
+        public static bool verificationNombre(double n)
         // fonction qui verifie si un nombre est premier ou non
         {
-            int nombreGenere;
-            int resultatModulo;
-            bool resultatFonction = false;
-
-            // création d'une boucle qui verifie le nombre envoyé
-            for (nombreGenere = 2; (nombreGenere < nombreEnvoye) && (resultatFonction == false); nombreGenere++)
+            int i;
+            int racine;
+            bool fini;
+            decimal debRacine = Convert.ToInt32(Math.Sqrt(n));
+            racine = Convert.ToInt32(Math.Truncate(debRacine));
+            fini = false;
+            i = 3;
+            if (n < 2) { fini = true; }
+            else if (n != 2)
             {
-                // si le nombre généré n'est pas egal au nombre envoyé
-                if (nombreGenere != nombreEnvoye)
+                if (n % 2 == 0)
                 {
-                    // on teste le modulo de la division
-                    resultatModulo = nombreEnvoye % nombreGenere;
-                    // si le reste est 0, le nombre est premier
-                    if (resultatModulo == 0)
+                    fini = true;
+                }
+                else
+                {
+                    while ((!fini) && (i <= racine))
                     {
-                        resultatFonction = true;
+                        if (n % i == 0) { fini = true; }
+                        else { i = i + 2; }
                     }
                 }
             }
+            return (!fini);
+        }
 
-            // on retourne true si le nombre est premier et false s'il ne l'est pas
-            return resultatFonction;
+        private void affichage()
+        { int cptCentre = 0;
+            int cpt2 = 0;
+            foreach (CCentreTri centre in QueueCentreTri)
+            {
+                cptCentre++;
+                cpt2++;
+                Console.WriteLine("Centre de tri "+cptCentre+"\nPapier: " + centre.nbRessource("papier")+"\nVerre: "+centre.nbRessource("verre") + "\nFerraille: "+centre.nbRessource("ferraille")+ "\nTerre: "+centre.nbRessource("terre")+ "\nPlastique: "+centre.nbRessource("plastique")+"\nNombre de vaisseaux dans la file de départ: "+centre.QueueVaisseauVide.Count+ "\n-----------------------");
+                if (cpt2==5)
+                {
+                    Console.ReadKey(true);
+                    cpt2 = 0;
+                }
+            }
         }
     }
 }

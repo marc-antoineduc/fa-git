@@ -11,6 +11,7 @@ namespace Projet_Final
         
         static void Main(string[] args)
         {
+            Console.SetWindowSize(80,40);
             CPrincipale principale = new CPrincipale();
             Console.ReadKey();
 
