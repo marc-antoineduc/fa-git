@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Projet_Final
 {
     class CVaisseau
-    {
+    {//Classe de vaisseau comportant toutes les caractéristiques demandées 
         protected string type = "";
         protected int capaciteMax = 0, papier = 0, verre = 0, plastique = 0, ferraille = 0, terre = 0;
         public CVaisseau(string type, int capaciteMax)
@@ -51,7 +51,7 @@ namespace Projet_Final
             get { return terre; }
             set { terre = value; }
         }
-        public bool placeDisponible()
+        public bool placeDisponible() //fonction qui vérifie s'il y a encore de la place dans le vaisseau, retourne false s'il est plein.
         {
             bool capacite = true;
             if (papier+verre+plastique+ferraille+terre == CapaciteMax)

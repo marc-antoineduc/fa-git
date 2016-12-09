@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 namespace Projet_Final
 {
     class CPrincipale
-    {
+    {//Classe principale.
         Random r;
         public Queue<CCentreTri> QueueCentreTri;
         public CPrincipale()
-        {
+        {//fonction qui guide le déroulement
             r = new Random();
             QueueCentreTri = new Queue<CCentreTri>();
             initialisation();
@@ -22,7 +22,7 @@ namespace Projet_Final
             affichage();
         }
         private void initialisation()
-        {
+        {//initialise le nombre de vaisseau et de centre à partir des choix de l'utilisateur.
             bool verif = true;
             int vaisseau = 0, centre = 0; ;
             while (verif)
@@ -90,7 +90,7 @@ namespace Projet_Final
             creationVaisseau(Convert.ToInt32(vaisseau));
         }
         private void creationVaisseau(int nbVaisseau)
-        {
+        {//Fonction qui crée les vaisseaux avec le nombre choisi par l'utilisateur. le nombre de ressource maximale est fixe mais le nombre de chacune est aléatoire. 
             int nbCargo = 0, nbLeger = 0;
             nbCargo = r.Next(nbVaisseau);
             nbLeger = nbVaisseau - nbCargo;
@@ -119,7 +119,7 @@ namespace Projet_Final
         }
 
         private void creationcentre(int nbCentreTri)
-        {
+        {//crée les centres et les différencie s'il sont pairs, impairs, premiers et divisibles par 5 
             int papier, verre, plastique, ferraille, terre;
             for (int i = 1; i <= nbCentreTri; i++)
             {
@@ -198,7 +198,7 @@ namespace Projet_Final
             }
         }
         private void déroulement()
-        {
+        {//fonction qui échange les ressources des vaisseaux et les mets dans les centres de tri. si celui-ci est plein, les ressources sont transportées dans la file de vaisseau vide.
             Queue<CVaisseau> temp = new Queue<CVaisseau>(), temp2 = new Queue<CVaisseau>();
             foreach (CCentreTri centre in QueueCentreTri)
             {
@@ -327,7 +327,7 @@ namespace Projet_Final
             return (!fini);
         }
 
-        private void affichage()
+        private void affichage()//petite fonction affichant les caractéristiques des centres de tri.
         { int cptCentre = 0;
             int cpt2 = 0;
             foreach (CCentreTri centre in QueueCentreTri)

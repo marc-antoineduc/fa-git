@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Projet_Final
 {
     class CCentreTri
-    {
+    {//Classe de centre de tri
         Queue<CVaisseau> _QueueVaisseauPlein, _QueueVaisseauVide;
         Stack<CMatière> stackPapier;
         Stack<CMatière> stackVerre;
@@ -16,9 +16,8 @@ namespace Projet_Final
         Stack<CMatière> stackTerre;
         int CapacitePapier, CapaciteVerre, CapacitePlastique, CapaciteFerraille, CapaciteTerre;
         public CCentreTri(int CapacitePapier, int CapaciteVerre, int CapacitePlastique, int CapaciteFerraille, int CapaciteTerre)
-        {
-
-            //Console.WriteLine(CapacitePapier + CapaciteVerre + CapacitePlastique + CapaciteFerraille + CapaciteTerre);
+        {//initialise le centre de tri.
+           
             
             this.CapacitePapier = CapacitePapier;
             this.CapaciteVerre = CapaciteVerre;
@@ -134,7 +133,7 @@ namespace Projet_Final
         
 
         public Queue<CVaisseau> ChargementVaisseauAttente(string matiere)
-        {
+        {//chargeg les vaisseaux pleins. renvoie une queue de vaisseaux
             Queue<CVaisseau> temporaire = new Queue<CVaisseau>();
             int cpt = 0;
             foreach (CVaisseau vaisseau in QueueVaisseauVide)
@@ -190,7 +189,8 @@ namespace Projet_Final
             return temporaire;
         }
         public int nbRessource(string matiere)
-        { int nbRessource = 0;
+        {//fonction qui renvoie le nombre de ressource dans le stack demandé
+            int nbRessource = 0;
             switch (matiere)
             {
                 case "papier":
